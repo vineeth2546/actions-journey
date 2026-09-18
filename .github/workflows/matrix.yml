@@ -10,4 +10,5 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{matrix.python-version}}
-      - run: python3 c "import sys; print(sys.version)"
+      - name: Print the running version
+        run: python3 c "import sys; print(sys.version)"
