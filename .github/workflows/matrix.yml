@@ -11,4 +11,4 @@ jobs:
         with:
           python-version: ${{matrix.python-version}}
       - name: Print the running version
-        run: python3 c "import sys; print(sys.version)"
+        run: python3 -c "import sys; print(sys.version)"
