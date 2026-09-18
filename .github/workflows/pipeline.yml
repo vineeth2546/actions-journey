@@ -1,0 +1,22 @@
+name: three-stage
+on: push
+jobs:
+  build:
+    outputs:
+      version: ${{steps.bui.outputs.version}}
+    runs-on: ubuntu-latest
+    steps:
+      - id: bui
+        run: echo "version=1.1" >> "$GITHUB_OUTPUT"
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - id: tes
+        run: echo "${{needs.build.outputs.version}}"
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build, test]
+    steps:
+      - id: dep
+        run: echo "${{needs.build.outputs.version}}"
