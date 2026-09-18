@@ -1,0 +1,14 @@
+name: inspect
+on: push
+jobs:
+  inspect: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: code pull
+        uses: actions/checkout@v4
+      - name: print deets
+        run: |
+          uname -a
+          ls -la
+      - name: file count
+        run: ls -la | wc -l
