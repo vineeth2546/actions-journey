@@ -5,11 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - id: pip-cache
-        run: echo "dir=$(pip cache dir)" >> "$GITHUB_OUTPUT"
       - uses: actions/cache@v4
         with:
-          path: ${{steps.pip-cache.outputs.dir}}
+          path: ~/.cache/pip
           key: pip-${{ hashFiles('requirements.txt') }}
           restore-keys: |
             pip-
