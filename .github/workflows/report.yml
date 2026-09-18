@@ -1,0 +1,13 @@
+name: report
+on: push
+jobs:
+  report:
+    runs-on: ubuntu-latest      
+    steps:
+      - name: date writer
+        run: echo date > report.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: build-report
+          path: report.txt
+          retention-days: 5
