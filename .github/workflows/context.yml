@@ -10,4 +10,4 @@ jobs:
           echo "${{ github.ref_name  }}"
           echo "${{ github.sha  }}"
           echo "${{ github.event_name  }}"
-          echo "${{ runner.os }}
+          echo "${{ runner.os }}"
